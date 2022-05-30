@@ -5,7 +5,7 @@
 .cart-item {
     border-top: 1px solid v.$c-light-grey;
     width: 88%;
-    margin-bottom: 18px;
+    padding-block: 18px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -67,26 +67,32 @@
     height: v.$cart-image-height;
     display: flex;
     align-items: center;
-    &__previous-btn {
-        position: absolute;
-        @include m.clear-btn-styles;
-        filter: v.$drop-shadow-filter;
-        padding: 0;
-        cursor: pointer;
-    }
-    &__next-btn {
-        right: 0;
-        position: absolute;
-        right: 0;
-        @include m.clear-btn-styles;
-        filter: v.$drop-shadow-filter;
-        padding: 0;
-        cursor: pointer;
-    }
+
     &__image {
         height: v.$cart-image-height;
         width: v.$cart-image-width;
         object-fit: cover;
+    }
+
+    &__arrows {
+        position: absolute;
+        right: 0.8rem;
+        bottom: 0.8rem;
+        display: flex;
+        gap: 0.5rem;
+
+        & > * {
+            all: unset;
+            @include m.center;
+            cursor: pointer;
+            background-color: v.$c-black-73;
+            width: 1.5rem;
+            height: 1.5rem;
+
+            &:hover {
+                background-color: v.$c-black-100;
+            }
+        }
     }
 }
 

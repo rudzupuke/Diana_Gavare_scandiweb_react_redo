@@ -29,34 +29,32 @@ class CartProductImage extends Component {
     render() {
         return (
             <div className="cart-product-image-container">
-                {this.props.gallery.length > 1 && (
-                    <button
-                        className="cart-product-image-container__previous-btn"
-                        onClick={this.showPreviousImage}
-                    >
-                        <img
-                            className="cart-product-image-container__previous-img"
-                            src={chevronLeft}
-                            alt=""
-                        />
-                    </button>
-                )}
                 <img
                     className="cart-product-image-container__image"
                     src={this.state.currentImage}
                     alt={this.props.productName}
                 />
                 {this.props.gallery.length > 1 && (
-                    <button
-                        className="cart-product-image-container__next-btn"
-                        onClick={this.showNextImage}
-                    >
-                        <img
-                            className="cart-product-image-container__next-img"
-                            src={chevronRight}
-                            alt=""
-                        />
-                    </button>
+                    <div className="cart-product-image-container__arrows">
+                        <button onClick={this.showPreviousImage}>
+                            {/* <div> */}
+                            <img
+                                className="cart-product-image-container__previous-img"
+                                src={chevronLeft}
+                                alt=""
+                            />
+                            {/* </div> */}
+                        </button>
+                        <button onClick={this.showNextImage}>
+                            {/* <div> */}
+                            <img
+                                className="cart-product-image-container__next-img"
+                                src={chevronRight}
+                                alt=""
+                            />
+                            {/* </div> */}
+                        </button>
+                    </div>
                 )}
             </div>
         );

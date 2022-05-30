@@ -230,7 +230,7 @@ body {
   padding: 20px 0 20px 0;
 }
 .currency-switcher-container__item > button {
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
   border: 0px;
   cursor: pointer;
   color: #1d1f22;
@@ -283,7 +283,7 @@ body {
 }
 
 .navbar-cart-button {
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
   border: 0px;
   display: flex;
   list-style: none;
@@ -366,7 +366,7 @@ body {
 }
 
 .navbar-currency-button {
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
   border: 0px;
   display: flex;
   list-style: none;
@@ -402,7 +402,7 @@ body {
   z-index: 10;
   left: 75%;
   top: 70%;
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
   border: 0px;
 }
 .add-to-cart-button svg:hover circle {
@@ -500,7 +500,7 @@ body {
 .cart-item {
   border-top: 1px solid #e5e5e5;
   width: 88%;
-  margin-bottom: 18px;
+  padding-block: 18px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -528,10 +528,10 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 187px;
+  height: 288px;
 }
 .cart-product-amount-controller__button {
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
   border: 0px;
   display: flex;
   align-items: center;
@@ -554,32 +554,34 @@ body {
 
 .cart-product-image-container {
   position: relative;
-  height: 187px;
+  height: 288px;
   display: flex;
   align-items: center;
 }
-.cart-product-image-container__previous-btn {
-  position: absolute;
-  background: rgba(0, 0, 0, 0);
-  border: 0px;
-  filter: drop-shadow(0 0.1rem 0.2rem rgba(0, 0, 0, 0.3));
-  padding: 0;
-  cursor: pointer;
-}
-.cart-product-image-container__next-btn {
-  right: 0;
-  position: absolute;
-  right: 0;
-  background: rgba(0, 0, 0, 0);
-  border: 0px;
-  filter: drop-shadow(0 0.1rem 0.2rem rgba(0, 0, 0, 0.3));
-  padding: 0;
-  cursor: pointer;
-}
 .cart-product-image-container__image {
-  height: 187px;
-  width: 141px;
+  height: 288px;
+  width: 200px;
   object-fit: cover;
+}
+.cart-product-image-container__arrows {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.8rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.cart-product-image-container__arrows > * {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.73);
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.cart-product-image-container__arrows > *:hover {
+  background-color: black;
 }
 
 .cart-product-brand {
