@@ -16,9 +16,9 @@ class NavbarCartButton extends Component {
                     <img src={emptyCart} alt="" />
                     {/* if there is at least on item in the cart, an icon with the number of items in cart
                     shows up */}
-                    {CartStore.itemsInCart > 0 && (
+                    {CartStore.totalProducts > 0 && (
                         <span className="navbar-cart-button__items-in-cart">
-                            {CartStore.itemsInCart}
+                            {CartStore.totalProducts}
                         </span>
                     )}
                 </button>

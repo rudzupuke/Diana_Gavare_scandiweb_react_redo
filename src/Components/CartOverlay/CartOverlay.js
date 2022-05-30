@@ -42,7 +42,7 @@ class CartOverlay extends Component {
                         <h3 className="cart-overlay__cart-heading">
                             My bag,{" "}
                             <span className="cart-overlay__cart-heading--thin">
-                                {CartStore.itemsInCart} items
+                                {CartStore.totalProducts} items
                             </span>
                         </h3>
                         <div className="cart-overlay__products-container">

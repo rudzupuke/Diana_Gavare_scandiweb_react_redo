@@ -1,4 +1,4 @@
-import { makeObservable, observable, action, computed } from "mobx";
+import { makeObservable, observable, action, computed, toJS } from "mobx";
 import { CurrencyStore } from "./CurrencyStore";
 
 class CartStoreImpl {
@@ -10,6 +10,7 @@ class CartStoreImpl {
             addProductToCart: action,
             removeProductFromCart: action,
             itemsInCart: computed,
+            totalProducts: computed,
             totalPrice: computed,
             tax: computed,
         });
@@ -56,6 +57,15 @@ class CartStoreImpl {
         }
 
         localStorage.setItem("cart", JSON.stringify(this.cart));
+    }
+
+    get totalProducts() {
+        let total = 0;
+        this.cart.forEach((product) => {
+            total += product.count;
+        });
+
+        return total;
     }
 
     get totalPrice() {
