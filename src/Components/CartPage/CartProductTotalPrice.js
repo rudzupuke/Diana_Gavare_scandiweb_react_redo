@@ -3,6 +3,7 @@ import { Component } from "react";
 import { CurrencyStore } from "../../Stores/CurrencyStore";
 import { CartStore } from "../../Stores/CartStore";
 import OrderButton from "./OrderButton";
+import { observer } from "mobx-react";
 
 class CartProductTotalPrice extends Component {
     state = {};
@@ -39,4 +40,4 @@ class CartProductTotalPrice extends Component {
     }
 }
 
-export default CartProductTotalPrice;
+export default observer(CartProductTotalPrice);
