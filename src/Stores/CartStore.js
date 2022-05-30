@@ -1,4 +1,4 @@
-import { makeObservable, observable, action, computed, toJS } from "mobx";
+import { makeObservable, observable, action, computed } from "mobx";
 import { CurrencyStore } from "./CurrencyStore";
 
 class CartStoreImpl {

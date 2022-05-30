@@ -7,6 +7,8 @@ import CartOverlayProductImage from "./CartOverlayProductImage";
 import CartOverlayAttribute from "./CartOverlayAttribute";
 import CartOverlayProductCountController from "./CartOverlayProductAmountController";
 
+import { observer } from "mobx-react";
+
 class CartOverlayProduct extends Component {
     state = {};
 
@@ -69,4 +71,4 @@ export default graphql(getProductQuery, {
             },
         };
     },
-})(CartOverlayProduct);
+})(observer(CartOverlayProduct));
