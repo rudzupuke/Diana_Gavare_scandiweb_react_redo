@@ -86,6 +86,7 @@ class ProductContainer extends Component {
                                 : "NO-ATTRIBUTES"
                         }
                         prices={product.prices}
+                        productBrand={product.brand}
                         productName={product.name}
                         image={product.gallery[0]}
                         inStock={product.inStock}

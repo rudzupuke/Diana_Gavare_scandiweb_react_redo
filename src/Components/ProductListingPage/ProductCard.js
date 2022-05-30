@@ -86,7 +86,7 @@ class ProductCard extends Component {
                             this.props.inStock ? "" : "out-of-stock"
                         }`}
                     >
-                        {this.props.productName}
+                        {this.props.productBrand} {this.props.productName}
                     </p>
 
                     <ProductCardPriceContainer
