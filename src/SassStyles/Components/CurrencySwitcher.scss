@@ -1,35 +1,32 @@
 @use "../variables.scss" as v;
 @use "../mixins.scss" as m;
+.currency-switcher-container {
+    position: absolute;
+    left: 15px;
+    top: 40px;
+    background-color: v.$bgcolor;
+    filter: v.$drop-shadow;
 
-.cart-overlay-attribute[type="radio"],
-.cart-overlay-attribute--color[type="radio"] {
-    display: none;
-}
-
-.cart-overlay-attribute-label {
-    @include m.center;
-    @include m.cart-overlay-radio-button;
-    background-color: v.$c-cart-overlay-attribute-bg;
-    border: 1px solid v.$c-cart-overlay-attribute-text;
-    color: v.$c-cart-overlay-attribute-text;
-
-    &--color {
-        @extend .cart-overlay-attribute-label;
-        border: none;
+    &__items {
+        white-space: nowrap;
+        list-style: none;
+        padding: 20px 38px 20px 20px;
     }
-}
 
-.cart-overlay-attribute[type="radio"]:checked + .cart-overlay-attribute-label {
-    @include m.cart-overlay-radio-button;
-}
+    &__item + &__item {
+        padding-top: 22px;
+    }
 
-.cart-overlay-attribute--color[type="radio"]:checked
-    + .cart-overlay-attribute-label--color {
-    border: 1px solid v.$c-white;
-    outline: 1px solid v.$c-primary;
-    margin-left: 1px;
-}
+    &__button {
+        @include m.clear-btn-styles;
+        cursor: pointer;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 160%;
 
-.selected-colorinput:checked + .cart-overlay-attribute-label {
-    background-image: v.$slightly-dark-gradient;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }

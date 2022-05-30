@@ -217,52 +217,32 @@ body {
   background-image: radial-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2));
 }
 
-.cart-overlay-attribute[type=radio],
-.cart-overlay-attribute--color[type=radio] {
-  display: none;
+.currency-switcher-container {
+  position: absolute;
+  left: 15px;
+  top: 40px;
+  background-color: #ffffff;
+  filter: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.19));
 }
-
-.cart-overlay-attribute-label, .cart-overlay-attribute-label--color {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 24px;
-  height: 24px;
-  padding: 0 5px;
-  border: 1px solid #1d1f22;
-  color: #1d1f22;
-  font-family: "Source Sans Pro", sans-serif;
+.currency-switcher-container__items {
+  white-space: nowrap;
+  list-style: none;
+  padding: 20px 38px 20px 20px;
+}
+.currency-switcher-container__item + .currency-switcher-container__item {
+  padding-top: 22px;
+}
+.currency-switcher-container__button {
+  background: rgba(0, 0, 0, 0);
+  border: 0px;
+  cursor: pointer;
   font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  background-color: rgba(166, 166, 166, 0.2);
-  border: 1px solid #a6a6a6;
-  color: #a6a6a6;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 160%;
 }
-.cart-overlay-attribute-label--color {
-  border: none;
-}
-
-.cart-overlay-attribute[type=radio]:checked + .cart-overlay-attribute-label, .cart-overlay-attribute[type=radio]:checked + .cart-overlay-attribute-label--color {
-  min-width: 24px;
-  height: 24px;
-  padding: 0 5px;
-  border: 1px solid #1d1f22;
-  color: #1d1f22;
-  font-family: "Source Sans Pro", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-}
-
-.cart-overlay-attribute--color[type=radio]:checked + .cart-overlay-attribute-label--color {
-  border: 1px solid #ffffff;
-  outline: 1px solid #5ece7b;
-  margin-left: 1px;
-}
-
-.selected-colorinput:checked + .cart-overlay-attribute-label, .selected-colorinput:checked + .cart-overlay-attribute-label--color {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2));
+.currency-switcher-container__button:hover {
+  text-decoration: underline;
 }
 
 .navbar-container {
