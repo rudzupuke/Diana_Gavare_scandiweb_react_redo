@@ -47,11 +47,6 @@
     }
 }
 
-.selected {
-    @extend .product-card;
-    // filter: v.$drop-shadow;
-}
-
 .image-overlay {
     @include m.plp-image;
     position: absolute;

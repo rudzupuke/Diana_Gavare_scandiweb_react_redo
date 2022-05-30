@@ -413,7 +413,7 @@ body {
   cursor: pointer;
 }
 
-.product-card, .selected {
+.product-card {
   padding: 0.9rem;
   background-color: #ffffff;
   position: relative;
@@ -422,7 +422,7 @@ body {
   justify-content: center;
   z-index: 10;
 }
-.product-card:hover, .selected:hover {
+.product-card:hover {
   filter: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.19));
 }
 .product-card__image {

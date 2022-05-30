@@ -22,7 +22,9 @@ class ProductCard extends Component {
             <div
                 // if product has attributes and IS tracked, or there are no attributes, then selected class is added
                 // to the product card
-                className={`"product-card" 
+                className={
+                    "product-card" +
+                    ` 
                 ${
                     AttributeClickTrackingStore.isProductTracked(
                         this.props.productId
@@ -31,7 +33,9 @@ class ProductCard extends Component {
                         this.props.inStock)
                         ? "selected"
                         : ""
-                }`}
+                }
+                `
+                }
             >
                 {/* if product has attributes and IS tracked, or there are no attributes and product is IN stock, 
                 then AddToCartButton component is rendered */}
