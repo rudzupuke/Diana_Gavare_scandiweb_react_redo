@@ -6,6 +6,7 @@ class AddToCartButton extends Component {
             <button
                 className="pdp-add-to-cart-button"
                 onClick={this.props.handleClick}
+                disabled={this.props.inStock ? false : true}
             >
                 Add to cart
             </button>

@@ -49,6 +49,14 @@
     &:hover {
         background-color: darken(v.$c-primary, 10%);
     }
+
+    &[disabled] {
+        cursor: auto;
+
+        &:hover {
+            background-color: v.$c-primary;
+        }
+    }
 }
 
 .attributes-container {

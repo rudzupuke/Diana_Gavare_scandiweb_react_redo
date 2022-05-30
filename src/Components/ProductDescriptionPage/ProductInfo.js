@@ -50,6 +50,7 @@ class ProductInfo extends Component {
     };
 
     render() {
+        console.log(this.props);
         return (
             <div className="pdp-product-info">
                 <ProductName
@@ -65,7 +66,10 @@ class ProductInfo extends Component {
                     />
                 )}
                 <PriceContainer prices={this.props.prices} />
-                <AddToCartButton handleClick={this.addToCart} />
+                <AddToCartButton
+                    handleClick={this.addToCart}
+                    inStock={this.props.inStock}
+                />
                 <ProductDescription
                     productDescription={this.props.description}
                 />

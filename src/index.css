@@ -692,6 +692,12 @@ body {
 .pdp-add-to-cart-button:hover {
   background-color: #3abf5c;
 }
+.pdp-add-to-cart-button[disabled] {
+  cursor: auto;
+}
+.pdp-add-to-cart-button[disabled]:hover {
+  background-color: #5ece7b;
+}
 
 .attributes-container {
   margin-bottom: 43px;
