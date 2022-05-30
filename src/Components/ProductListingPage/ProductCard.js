@@ -52,14 +52,7 @@ class ProductCard extends Component {
                     />
                 )}
                 <div>
-                    {/* if product is out of stock then user can't click on it to go to it's description page: */}
-                    <Link
-                        to={`${
-                            this.props.inStock
-                                ? `/pdp/${this.props.productId}`
-                                : ""
-                        }`}
-                    >
+                    <Link to={`/pdp/${this.props.productId}`}>
                         <div className="product-card__image-container">
                             <img
                                 className="product-card__image"
