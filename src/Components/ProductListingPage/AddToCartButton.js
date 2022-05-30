@@ -4,6 +4,7 @@ class AddToCartButton extends Component {
         return (
             <button
                 className="add-to-cart-button"
+                style={this.props.style}
                 onClick={this.props.handleClick}
             >
                 <svg

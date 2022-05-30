@@ -8,6 +8,8 @@ import AddToCartButton from "./AddToCartButton";
 import { Link } from "react-router-dom";
 
 class ProductCard extends Component {
+    state = { style: { display: "none" } };
+
     // if product doesn't have any attributes, then it is not getting tracked, this.props.addToCart needs
     // "attribute" as an argument, to not get an error clicking on the AddToCartButtone if the product is not
     // tracked, "no-attribute" string is created for those products that don't have attributes:
@@ -36,6 +38,12 @@ class ProductCard extends Component {
                 }
                 `
                 }
+                onMouseEnter={() => {
+                    this.setState({ style: { display: "block" } });
+                }}
+                onMouseLeave={() => {
+                    this.setState({ style: { display: "none" } });
+                }}
             >
                 {/* if product has attributes and IS tracked, or there are no attributes and product is IN stock, 
                 then AddToCartButton component is rendered */}
@@ -53,6 +61,7 @@ class ProductCard extends Component {
                                 this.props.prices
                             )
                         }
+                        style={this.state.style}
                     />
                 )}
                 <div>
