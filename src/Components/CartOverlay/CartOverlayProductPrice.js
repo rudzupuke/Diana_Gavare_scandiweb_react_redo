@@ -8,10 +8,7 @@ class CartOverlayProductPrice extends Component {
 
         return (
             <>
-                {currentCurrency[0].currency.symbol}{" "}
-                {Math.round(
-                    currentCurrency[0].amount * this.props.productCount * 100
-                ) / 100}
+                {currentCurrency[0].currency.symbol} {currentCurrency[0].amount}
             </>
         );
     };

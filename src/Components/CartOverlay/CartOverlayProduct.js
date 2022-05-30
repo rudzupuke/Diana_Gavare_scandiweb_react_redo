@@ -25,7 +25,6 @@ class CartOverlayProduct extends Component {
                         <CartOverlayProductPrice
                             prices={this.props.data.product.prices}
                             currencySymbol={this.props.currencySymbol}
-                            productCount={this.props.productCount}
                         />
                     </div>
 

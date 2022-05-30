@@ -38,7 +38,6 @@ class CartItem extends Component {
                         <CartProductPrice
                             currentCurrency={this.props.currentCurrency}
                             prices={this.props.data.product.prices}
-                            productCount={this.props.productCount}
                             path={`/pdp/${this.props.productId}`}
                         />
                     </Link>
