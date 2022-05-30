@@ -59,9 +59,9 @@ class AttributeClickTrackingStoreImpl {
     }
 
     isProductTracked(productId) {
-        const { _, noMatchFound } = this.findIndex(productId);
+        const { index } = this.findIndex(productId);
 
-        const isTracked = !noMatchFound;
+        const isTracked = index >= 0;
 
         return isTracked;
     }

@@ -3,8 +3,7 @@ import { Component } from "react";
 import { withRouter } from "../../withRouter";
 import { observer } from "mobx-react";
 import { graphql } from "@apollo/client/react/hoc";
-import { compose } from "react-compose";
-import { getCategoriesQuery, getCurrenciesQuery } from "../../Queries/queries";
+import { getCategoriesQuery } from "../../Queries/queries";
 
 import CartOverlay from "../CartOverlay/CartOverlay";
 import NavbarCategory from "./NavbarCategory";
