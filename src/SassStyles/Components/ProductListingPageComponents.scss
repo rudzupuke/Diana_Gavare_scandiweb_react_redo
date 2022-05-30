@@ -1,0 +1,110 @@
+@use "../variables.scss" as v;
+@use "../mixins.scss" as m;
+
+.add-to-cart-button {
+    position: absolute;
+    z-index: 10;
+    left: 75%;
+    top: 70%;
+
+    @include m.clear-btn-styles;
+
+    svg {
+        &:hover circle {
+            fill: darken(v.$c-primary, 10%);
+            cursor: pointer;
+        }
+
+        &:hover path {
+            cursor: pointer;
+        }
+    }
+}
+
+.product-card {
+    padding: 0.9rem;
+    background-color: v.$c-white;
+    position: relative;
+    @include m.center;
+
+    &__image {
+        @include m.plp-image;
+    }
+
+    &__image-container {
+        position: relative;
+    }
+
+    &__product-name {
+        margin-top: 25px;
+        font-size: v.$plp-name-price;
+    }
+}
+
+.selected {
+    @extend .product-card;
+    filter: v.$drop-shadow;
+}
+
+.image-overlay {
+    @include m.plp-image;
+    position: absolute;
+    top: 0px;
+    display: none;
+
+    &--out-of-stock {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @extend .image-overlay;
+        background: v.$out-of-stock-overlay;
+        cursor: auto;
+
+        &::after {
+            content: "OUT OF STOCK";
+            color: v.$c-out-of-stock;
+            font-weight: v.$normal;
+            font-size: v.$out-of-stock-f-size;
+            line-height: 160%;
+        }
+    }
+}
+
+.out-of-stock {
+    color: v.$c-out-of-stock;
+}
+
+.product-card-price {
+    font-size: v.$plp-name-price;
+    font-weight: v.$bold;
+    margin-top: 5px;
+    line-height: 29px;
+}
+
+.plp-container__items {
+    margin: 25px auto 50px auto;
+    display: grid;
+    column-gap: 49px;
+    row-gap: 100px;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(v.$product-card-wdith, 1fr)
+    );
+}
+
+.plp-container__button-container {
+    @include m.center;
+    margin-bottom: 100px;
+}
+
+.show-more-button {
+    background-color: v.$c-white;
+    border: 1px solid v.$c-black;
+    text-transform: uppercase;
+    padding: 0.6em 2.5em;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken(v.$c-white, 10%);
+    }
+}

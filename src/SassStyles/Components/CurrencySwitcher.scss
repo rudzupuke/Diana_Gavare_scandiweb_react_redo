@@ -1,0 +1,35 @@
+@use "../variables.scss" as v;
+@use "../mixins.scss" as m;
+
+.cart-overlay-attribute[type="radio"],
+.cart-overlay-attribute--color[type="radio"] {
+    display: none;
+}
+
+.cart-overlay-attribute-label {
+    @include m.center;
+    @include m.cart-overlay-radio-button;
+    background-color: v.$c-cart-overlay-attribute-bg;
+    border: 1px solid v.$c-cart-overlay-attribute-text;
+    color: v.$c-cart-overlay-attribute-text;
+
+    &--color {
+        @extend .cart-overlay-attribute-label;
+        border: none;
+    }
+}
+
+.cart-overlay-attribute[type="radio"]:checked + .cart-overlay-attribute-label {
+    @include m.cart-overlay-radio-button;
+}
+
+.cart-overlay-attribute--color[type="radio"]:checked
+    + .cart-overlay-attribute-label--color {
+    border: 1px solid v.$c-white;
+    outline: 1px solid v.$c-primary;
+    margin-left: 1px;
+}
+
+.selected-colorinput:checked + .cart-overlay-attribute-label {
+    background-image: v.$slightly-dark-gradient;
+}

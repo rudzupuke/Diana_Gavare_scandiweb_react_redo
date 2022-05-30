@@ -1,0 +1,8 @@
+@use "../mixins.scss" as m;
+
+.pdp-container {
+    @include m.center-content;
+    padding-top: 75px;
+    padding-bottom: 50px;
+    display: flex;
+}

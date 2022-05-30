@@ -1,0 +1,60 @@
+//COLORS:
+$bgcolor: #ffffff;
+$c-black: #1d1f22;
+$c-white: #ffffff;
+$c-primary: #5ece7b;
+$c-out-of-stock: #8d8f9a;
+$c-light-grey: #e5e5e5;
+$c-cart-overlay-attribute-bg: hsl(0, 0%, 65%, 20%);
+$c-cart-overlay-attribute-text: hsl(0, 0%, 65%);
+
+$transparent: rgba(0, 0, 0, 0);
+
+$slightly-dark: linear-gradient(rgb(0, 0, 0, 0.1), rgb(0, 0, 0, 0.1));
+$slightly-dark-gradient: radial-gradient(
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.2),
+    rgb(0, 0, 0, 0.2)
+);
+
+$out-of-stock-overlay: rgb(255, 255, 255, 0.5);
+
+// FONT SIZES:
+$plp-name-price: 18px;
+$products-in-cart-mini: 14px;
+$cart-page-amount: 24px;
+$main-attribute-f-size: 16px;
+$pdp-attribute-price-f-size: 18px;
+$product-description-f-size: 16px;
+$out-of-stock-f-size: 24px;
+$order-button-f-size: 14px;
+$cart-overlay-cont-f-size: 16px;
+
+// FONT WEIGHTS:
+
+$thin: 300;
+$normal: 400;
+$regular: 500;
+$bold: 600;
+$bolder: 700;
+
+// DROP SHADOWS:
+
+$drop-shadow: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.19));
+$drop-shadow-filter: drop-shadow(0 0.1rem 0.2rem rgba(0, 0, 0, 0.3));
+
+// PADDINGS:
+
+$nav-padding: 28px 16px;
+
+// IMAGE & OTHER ELEMENT SIZES:
+
+$main-image-height: 511px;
+$main-image-width: 610px;
+$cart-image-height: 187px;
+$cart-image-width: 141px;
+$amount-controller-button-size: 45px;
+$main-attribute-width: 63px;
+$main-attribute-height: 45px;
+$pdp-gallery-image-size: 80px;
+$product-card-wdith: 384px;

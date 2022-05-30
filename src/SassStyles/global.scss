@@ -1,0 +1,16 @@
+@use "./variables.scss" as v;
+@use "./typography.scss" as t;
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: v.$bgcolor;
+    font-family: t.$main-font;
+    color: v.$c-black;
+    font-size: 16px;
+}

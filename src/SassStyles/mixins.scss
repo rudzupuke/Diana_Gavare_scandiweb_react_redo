@@ -1,0 +1,115 @@
+@use "./variables.scss" as v;
+@use "./typography.scss" as t;
+
+// TEXT:
+
+@mixin nav-text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+@mixin brand-name {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 27px;
+}
+
+@mixin product-name {
+    @include brand-name;
+    font-weight: 400;
+}
+
+@mixin price {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 18px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+@mixin cart-overlay-product-name {
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 25.6px;
+}
+
+@mixin cart-overlay-bold-text {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 160%;
+}
+
+@mixin currency-symbol-cart-amount {
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%;
+}
+
+@mixin category-heading {
+    padding: 80px 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 160%;
+}
+
+@mixin pdp-add-to-cart-button-text {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    text-transform: uppercase;
+}
+// LAYOUT/POSITIONING:
+
+@mixin horizontal-list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+@mixin center-content {
+    width: 90%;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+@mixin center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// OTHER:
+
+@mixin clear-btn-styles {
+    background: rgba(0, 0, 0, 0);
+    border: 0px;
+}
+
+@mixin plp-image {
+    width: 354px;
+    height: 330px;
+    object-fit: cover;
+}
+
+@mixin cart-overlay-radio-button {
+    min-width: 24px;
+    height: 24px;
+    padding: 0 5px;
+    border: 1px solid v.$c-black;
+    color: v.$c-black;
+
+    font-family: t.$item-font;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+}

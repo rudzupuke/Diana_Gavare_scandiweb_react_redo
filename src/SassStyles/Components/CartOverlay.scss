@@ -1,0 +1,189 @@
+@use "../variables.scss" as v;
+@use "../mixins.scss" as m;
+
+.button {
+    @include m.center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+    text-transform: uppercase;
+    text-decoration: none;
+    width: 140px;
+    height: 43px;
+}
+
+.button--primary {
+    @extend .button;
+    background-color: v.$c-primary;
+    color: v.$c-white;
+    border: 1px solid v.$c-primary;
+
+    &:hover {
+        background-color: darken(v.$c-primary, 5%);
+    }
+}
+
+.button--secondary {
+    @extend .button;
+    background-color: v.$c-white;
+    color: v.$c-black;
+    border: 1px solid v.$c-black;
+
+    &:hover {
+        background-color: darken(v.$c-white, 5%);
+    }
+}
+
+.cart-overlay {
+    top: 77px;
+    z-index: 100;
+    position: fixed;
+    background: rgba(57, 55, 72, 0.22);
+    width: 100%;
+    min-height: 91%;
+    height: max-content;
+
+    &__container {
+        @include m.center-content;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__cart {
+        background-color: v.$bgcolor;
+        width: fit-content;
+        padding: 10px;
+
+        &-heading {
+            @include m.cart-overlay-bold-text;
+            color: v.$c-black;
+            margin-bottom: 23px;
+
+            &--thin {
+                font-weight: 300;
+            }
+        }
+    }
+
+    &__total-price {
+        display: flex;
+        justify-content: space-between;
+        @include m.cart-overlay-bold-text;
+        color: v.$c-black;
+        margin-bottom: 31px;
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 12px;
+        justify-content: space-between;
+    }
+
+    &__products-container {
+        max-height: 356px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    &__items {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 41px;
+    }
+
+    &__items-left {
+        height: 137px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__items-right {
+        display: flex;
+        gap: 10px;
+    }
+
+    &__item-brand {
+        @include m.cart-overlay-product-name;
+    }
+
+    &__item-name {
+        @include m.cart-overlay-product-name;
+    }
+
+    &__item-price {
+        font-weight: v.$regular;
+        line-height: 25.6px;
+        margin-top: 4px;
+    }
+
+    &__item-image {
+        height: 137px;
+        width: 105px;
+        object-fit: cover;
+    }
+
+    &__attributes {
+        display: flex;
+        gap: 8px;
+    }
+
+    &__item-count-controller {
+        height: 137px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__item-count {
+        font-weight: v.$regular;
+        font-size: v.$cart-overlay-cont-f-size;
+    }
+
+    &__item-count-button {
+        @include m.cart-overlay-radio-button;
+        background-color: v.$c-white;
+        cursor: pointer;
+    }
+
+    &__item-count-button:hover {
+        background-color: darken(v.$c-white, 10%);
+    }
+}
+
+.cart-overlay-attribute[type="radio"],
+.cart-overlay-attribute--color[type="radio"] {
+    display: none;
+}
+
+.cart-overlay-attribute-label {
+    @include m.center;
+    @include m.cart-overlay-radio-button;
+    background-color: v.$c-cart-overlay-attribute-bg;
+    border: 1px solid v.$c-cart-overlay-attribute-text;
+    color: v.$c-cart-overlay-attribute-text;
+
+    &--color {
+        @extend .cart-overlay-attribute-label;
+        border: none;
+    }
+}
+
+.cart-overlay-attribute[type="radio"]:checked + .cart-overlay-attribute-label {
+    @include m.cart-overlay-radio-button;
+}
+
+.cart-overlay-attribute--color[type="radio"]:checked
+    + .cart-overlay-attribute-label--color {
+    border: 1px solid v.$c-white;
+    outline: 1px solid v.$c-primary;
+    margin-left: 1px;
+}
+
+.selected-colorinput:checked + .cart-overlay-attribute-label {
+    background-image: v.$slightly-dark-gradient;
+}

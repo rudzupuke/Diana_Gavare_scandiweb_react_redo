@@ -1,0 +1,15 @@
+@use "../mixins.scss" as m;
+@use "../variables.scss" as v;
+
+.cart-container {
+    @include m.center-content;
+    margin-bottom: 100px;
+
+    &__heading {
+        padding: 82px 0 57px 0;
+        font-weight: v.$bolder;
+        font-size: 32px;
+        line-height: 40px;
+        text-transform: uppercase;
+    }
+}

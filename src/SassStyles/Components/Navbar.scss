@@ -1,0 +1,137 @@
+@use "../mixins.scss" as m;
+@use "../variables.scss" as v;
+@use "../typography.scss" as t;
+
+.navbar-container {
+    background-color: v.$c-white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    @include m.center-content;
+    color: v.$c-black;
+    background-color: v.$c-white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__categories {
+        @include m.horizontal-list;
+        padding: 0;
+    }
+
+    &__logo {
+        padding: 24px 130px 14px 0;
+    }
+
+    &__currency-cart {
+        @include m.horizontal-list;
+        gap: 20px;
+        position: relative;
+    }
+}
+
+.navbar-cart-button {
+    @include m.clear-btn-styles;
+    @include m.horizontal-list;
+    align-items: baseline;
+    padding: 0;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+
+    &__items-in-cart {
+        position: absolute;
+        display: block;
+        @include m.center;
+        background-color: v.$c-black;
+        color: v.$c-white;
+        font-size: v.$products-in-cart-mini;
+        font-family: t.$attributes-font;
+        line-height: t.$attributes-font;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        left: 12px;
+        bottom: 7px;
+        -webkit-animation: scale-up 0.2s linear;
+        animation: scale-up 0.2s linear;
+    }
+}
+
+@-webkit-keyframes scale-up {
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@keyframes scale-up {
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+.navbar-category-link {
+    @include m.nav-text;
+    color: v.$c-black;
+    padding: v.$nav-padding;
+
+    &:hover {
+        color: v.$c-primary;
+        border-bottom: 2px solid v.$c-primary;
+    }
+
+    &:visited {
+        color: v.$c-black;
+    }
+
+    &--active {
+        @include m.nav-text;
+        color: v.$c-primary;
+        padding: v.$nav-padding;
+        cursor: pointer;
+        border-bottom: 2px solid v.$c-primary;
+        font-weight: v.$bold;
+    }
+}
+
+.navbar-currency-button {
+    @include m.clear-btn-styles;
+    @include m.horizontal-list;
+    align-items: baseline;
+    justify-content: flex-end;
+    padding: 0;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+    min-width: 45px;
+
+    &__currency-symbol {
+        @include m.currency-symbol-cart-amount;
+        font-size: 18px;
+    }
+
+    &__arrow-down::before {
+        content: url(./Assets/chevron-down.svg);
+        display: inline-block;
+        transition: 0.5s;
+    }
+
+    &__arrow-up::before {
+        content: url(./Assets/chevron-down.svg);
+        display: inline-block;
+        transform: rotate(-180deg);
+        transition: 0.5s;
+    }
+}
