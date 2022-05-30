@@ -73,7 +73,7 @@ class Navbar extends Component {
                                 isCurrencySwitcherOpen={
                                     this.state.currencyContainerOpen
                                 }
-                                currencies={this.props.currencies} // this.props.currencies comes from graphql
+                                // currencies={this.props.currencies} // this.props.currencies comes from graphql
                             />
 
                             <NavbarCartButton
@@ -93,7 +93,8 @@ class Navbar extends Component {
     }
 }
 
-export default compose(
-    graphql(getCategoriesQuery, { name: "categories" }),
-    graphql(getCurrenciesQuery, { name: "currencies" })
-)(withRouter(observer(Navbar)));
+// export default compose(
+export default graphql(getCategoriesQuery, { name: "categories" })(
+    // graphql(getCurrenciesQuery, { name: "currencies" })
+    withRouter(observer(Navbar))
+);

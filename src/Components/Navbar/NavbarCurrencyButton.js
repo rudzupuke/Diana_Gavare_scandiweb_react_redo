@@ -25,8 +25,7 @@ class NavbarCurrencyButton extends Component {
                 </button>
                 {this.props.isCurrencySwitcherOpen && (
                     <CurrencySwitcher
-                        currencies={this.props.currencies}
-                        loading={this.props.loading}
+                        closeCurrencySwitcher={this.props.handleClick}
                     />
                 )}
             </li>

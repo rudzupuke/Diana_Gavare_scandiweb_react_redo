@@ -1,9 +1,17 @@
 import { Component } from "react";
 import { CurrencyStore } from "../../Stores/CurrencyStore";
+import { observer } from "mobx-react";
+import { graphql } from "@apollo/client/react/hoc";
+import { getCurrenciesQuery } from "../../Queries/queries";
 
 class CurrencySwitcher extends Component {
+    handleClick = (e, currencySymbol) => {
+        CurrencyStore.changeCurrency(currencySymbol);
+        this.props.closeCurrencySwitcher(e);
+    };
+
     displayCurrencies() {
-        if (this.props.loading) {
+        if (this.props.currencies.loading) {
             return <p>...</p>;
         } else {
             return this.props.currencies.currencies.map((currency) => {
@@ -14,8 +22,8 @@ class CurrencySwitcher extends Component {
                     >
                         <button
                             value={currency.label}
-                            onClick={() =>
-                                CurrencyStore.changeCurrency(currency.symbol)
+                            onClick={(e) =>
+                                this.handleClick(e, currency.symbol)
                             }
                             className="currency-switcher-container__button"
                         >
@@ -46,4 +54,6 @@ class CurrencySwitcher extends Component {
     }
 }
 
-export default CurrencySwitcher;
+export default graphql(getCurrenciesQuery, { name: "currencies" })(
+    observer(CurrencySwitcher)
+);
