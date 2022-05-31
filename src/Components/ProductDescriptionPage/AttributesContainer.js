@@ -9,7 +9,7 @@ class AttributesContainer extends Component {
         const trackedProducts = JSON.parse(
             sessionStorage.getItem("trackedProducts")
         );
-        console.log(trackedProducts);
+
         if (trackedProducts !== null && this.props.attributes.length > 1) {
             if (
                 Array.isArray(trackedProducts) &&
