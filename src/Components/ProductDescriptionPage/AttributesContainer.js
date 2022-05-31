@@ -8,7 +8,7 @@ class AttributesContainer extends Component {
     componentDidMount() {
         const trackedProducts = sessionStorage.getItem("trackedProducts");
         if (
-            trackedProducts === null &&
+            trackedProducts !== null &&
             !AttributeClickTrackingStore.isProductTracked(
                 this.props.productId
             ) &&
