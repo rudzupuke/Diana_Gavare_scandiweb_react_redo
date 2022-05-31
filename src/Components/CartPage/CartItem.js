@@ -22,6 +22,7 @@ class CartItem extends Component {
     };
 
     render() {
+        // console.log(this.props);
         if (this.props.data.loading) return <p>loading...</p>;
         return (
             <div className="cart-item">
@@ -42,21 +43,33 @@ class CartItem extends Component {
                         />
                     </Link>
                     {/* if product has no attributes, don't render AttributeInput component */}
-                    <div className="cart-item__attributes">
-                        {this.props.data.product.attributes[0] &&
-                            this.props.data.product.attributes[0].items.map(
-                                (attr) => (
-                                    <AttributeInput
-                                        key={attr.id}
-                                        id={attr.id}
-                                        name={attr.name}
-                                        itemValue={attr.value}
-                                        selectedAttribute={this.props.attribute}
-                                        disabled={true}
-                                    />
-                                )
-                            )}
-                    </div>
+
+                    {this.props.data.product.attributes[0] &&
+                        this.props.data.product.attributes.map(
+                            (attr, index) => (
+                                <div key={index}>
+                                    <span>{attr.name}</span>
+                                    <div className="cart-item__attributes">
+                                        {attr.items.map((item, index) => (
+                                            <AttributeInput
+                                                key={index}
+                                                name={attr.name}
+                                                itemValue={item.value}
+                                                selectedAttribute={
+                                                    this.props.attribute
+                                                }
+                                                disabled={true}
+                                                attributeTypeCount={
+                                                    this.props.data.product
+                                                        .attributes.length
+                                                }
+                                                uniqueId={this.props.uniqueId}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            )
+                        )}
                 </div>
 
                 <div className="cart-item__right-container">

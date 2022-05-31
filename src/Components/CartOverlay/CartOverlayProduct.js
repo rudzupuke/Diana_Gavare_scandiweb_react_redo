@@ -36,8 +36,9 @@ class CartOverlayProduct extends Component {
                                     <div key={index}>
                                         <span>{attr.name}</span>
                                         <div className="cart-overlay__attributes">
-                                            {attr.items.map((item) => (
+                                            {attr.items.map((item, index) => (
                                                 <CartOverlayAttribute
+                                                    key={index}
                                                     name={attr.name}
                                                     itemValue={item.value}
                                                     attributeCount={

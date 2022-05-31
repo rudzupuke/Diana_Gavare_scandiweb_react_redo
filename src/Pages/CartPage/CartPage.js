@@ -2,6 +2,7 @@ import { Component } from "react";
 import CartItem from "../../Components/CartPage/CartItem";
 import { CartStore } from "../../Stores/CartStore";
 import { CurrencyStore } from "../../Stores/CurrencyStore";
+import { toJS } from "mobx";
 import { observer } from "mobx-react";
 import CartProductTotalPrice from "../../Components/CartPage/CartProductTotalPrice";
 
@@ -18,7 +19,7 @@ class CartPage extends Component {
                             currentCurrency={CurrencyStore.currency}
                             productCount={product.count}
                             attributeType={product.attributeType}
-                            attribute={product.attribute}
+                            attribute={toJS(product.attribute)}
                             uniqueId={product.uniqueId}
                         />
                     );

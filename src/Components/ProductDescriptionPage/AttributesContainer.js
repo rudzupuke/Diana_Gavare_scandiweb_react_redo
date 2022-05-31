@@ -1,6 +1,6 @@
 import { Component } from "react";
 
-import NewAttributeInput from "./NewAttributeInput";
+import AttributeInput from "./AttributeInput";
 import { AttributeClickTrackingStore } from "../../Stores/AttributeClickTrackingStore";
 
 class AttributesContainer extends Component {
@@ -36,7 +36,7 @@ class AttributesContainer extends Component {
 
                         <div className="attributes-container__items">
                             {attributeSet.items.map((item) => (
-                                <NewAttributeInput
+                                <AttributeInput
                                     itemValue={item.value}
                                     attributeTypeCount={
                                         this.props.attributes.length
