@@ -121,13 +121,14 @@ class AttributeClickTrackingStoreImpl {
         let attributesArray = JSON.parse(
             sessionStorage.getItem(productId + " " + "attributesArray")
         );
+        if (attributesArray) {
+            attributesArray.forEach((attr) => (attr.attribute = null));
 
-        attributesArray.forEach((attr) => (attr.attribute = null));
-
-        sessionStorage.setItem(
-            productId + " " + "attributesArray",
-            JSON.stringify(attributesArray)
-        );
+            sessionStorage.setItem(
+                productId + " " + "attributesArray",
+                JSON.stringify(attributesArray)
+            );
+        }
     }
 
     isProductTracked(productId) {

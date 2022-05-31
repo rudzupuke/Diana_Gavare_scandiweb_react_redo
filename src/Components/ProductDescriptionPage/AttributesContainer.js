@@ -6,17 +6,21 @@ import { AttributeClickTrackingStore } from "../../Stores/AttributeClickTracking
 class AttributesContainer extends Component {
     state = {};
     componentDidMount() {
-        const trackedProducts = sessionStorage.getItem("trackedProducts");
-        if (
-            trackedProducts !== null &&
-            !AttributeClickTrackingStore.isProductTracked(
-                this.props.productId
-            ) &&
-            this.props.attributes.length > 1
-        ) {
-            AttributeClickTrackingStore.untractAttributesArray(
-                this.props.productId
-            );
+        const trackedProducts = JSON.parse(
+            sessionStorage.getItem("trackedProducts")
+        );
+        console.log(trackedProducts);
+        if (trackedProducts !== null && this.props.attributes.length > 1) {
+            if (
+                Array.isArray(trackedProducts) &&
+                !AttributeClickTrackingStore.isProductTracked(
+                    this.props.productId
+                )
+            ) {
+                AttributeClickTrackingStore.untractAttributesArray(
+                    this.props.productId
+                );
+            }
         }
     }
 
