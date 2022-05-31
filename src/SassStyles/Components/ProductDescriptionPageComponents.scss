@@ -74,6 +74,10 @@
         display: flex;
         gap: 12px;
     }
+
+    & > * + * {
+        margin-top: 20px;
+    }
 }
 
 .product-attribute[type="radio"],
@@ -99,6 +103,9 @@
 
     &--color {
         @extend .product-label;
+        width: v.$main-color-attribute-size;
+        height: v.$main-color-attribute-size;
+        filter: v.$drop-shadow-filter;
         border: none;
 
         &:hover {
@@ -125,6 +132,7 @@
 }
 
 .product-attribute--color:checked + .product-label--color {
+    filter: none;
     border: 2px solid v.$c-white;
     outline: 1px solid v.$c-primary;
 }

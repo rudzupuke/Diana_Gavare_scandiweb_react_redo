@@ -16,26 +16,46 @@ class CartStoreImpl {
         });
     }
 
-    addProductToCart(productId, attributeType, attribute, prices) {
+    addProductToCart(productId, attributeName, attribute, prices) {
         if (!attribute) return;
 
         // creating a uniqueId because user can add one product with different attributes to the cart ( for example,
         // coat with size M is one product & coat with size L another)
-        const uniqueId = productId + attribute;
+        let uniqueId;
+        let product;
+
+        if (Array.isArray(attribute)) {
+            let attributeNameString = "";
+            attribute.forEach((attribute) => {
+                attributeNameString += attribute.attribute;
+            });
+            uniqueId = productId + attributeNameString;
+
+            product = {
+                uniqueId: uniqueId,
+                productId: productId,
+                attributeName: null,
+                attribute: attribute,
+                prices: prices,
+                count: 1,
+            };
+        } else {
+            uniqueId = productId + attribute;
+
+            product = {
+                uniqueId: uniqueId,
+                productId: productId,
+                attributeName: attributeName,
+                attribute: attribute,
+                prices: prices,
+                count: 1,
+            };
+        }
 
         const index = this.cart.findIndex(
             (product) => product.uniqueId === uniqueId
         );
         const noMatchFound = index === -1;
-
-        const product = {
-            uniqueId: uniqueId,
-            productId: productId,
-            attributeType: attributeType,
-            attribute: attribute,
-            prices: prices,
-            count: 1,
-        };
 
         if (noMatchFound) {
             this.cart.push(product);

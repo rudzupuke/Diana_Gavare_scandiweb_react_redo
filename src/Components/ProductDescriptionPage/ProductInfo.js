@@ -18,9 +18,24 @@ class ProductInfo extends Component {
             ) || "no-attribute",
     };
 
-    handleAttributeClick = (value) => {
-        this.setState({ selectedItemAttribute: value });
-        AttributeClickTrackingStore.trackProduct(this.props.productId, value);
+    handleAttributeClick = (value, attributeName, attributes) => {
+        AttributeClickTrackingStore.trackProduct(
+            this.props.productId,
+            value,
+            attributeName,
+            attributes
+        );
+
+        if (attributes.length < 1) {
+            this.setState({ selectedItemAttribute: value });
+        } else {
+            this.setState({
+                selectedItemAttribute:
+                    AttributeClickTrackingStore.getProductAttribute(
+                        this.props.productId
+                    ),
+            });
+        }
     };
 
     // if there is no attributes object, then create NO-ATTRIBUTES string to add to Cart
@@ -43,14 +58,15 @@ class ProductInfo extends Component {
                 this.props.prices
             );
         }
+
         // if there are no attributes, then product is not getting tracked in the AttributeClickTrackingStore,
         // to not get an error untrackProduct function gets called only when there are attributes:
+
         if (this.props.attributes[0])
             AttributeClickTrackingStore.untrackProduct(this.props.productId);
     };
 
     render() {
-        console.log(this.props);
         return (
             <div className="pdp-product-info">
                 <ProductName
@@ -58,12 +74,15 @@ class ProductInfo extends Component {
                     productName={this.props.name}
                 />
                 {this.props.attributes.length > 0 && (
-                    <AttributesContainer
-                        attributeName={this.props.attributes[0].name}
-                        attributeItems={this.props.attributes[0].items}
-                        handleAttributeClick={this.handleAttributeClick}
-                        selectedAttribute={this.state.selectedItemAttribute}
-                    />
+                    <>
+                        <AttributesContainer
+                            productId={this.props.productId}
+                            attributes={this.props.attributes}
+                            handleAttributeClick={this.handleAttributeClick}
+                            selectedAttribute={this.state.selectedItemAttribute}
+                            inStock={this.props.inStock}
+                        />
+                    </>
                 )}
                 <PriceContainer prices={this.props.prices} />
                 <AddToCartButton

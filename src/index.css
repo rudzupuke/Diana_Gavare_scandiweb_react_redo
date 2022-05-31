@@ -714,6 +714,9 @@ body {
   display: flex;
   gap: 12px;
 }
+.attributes-container > * + * {
+  margin-top: 20px;
+}
 
 .product-attribute[type=radio],
 .product-attribute--color[type=radio] {
@@ -737,6 +740,9 @@ body {
   cursor: pointer;
 }
 .product-label--color {
+  width: 36px;
+  height: 36px;
+  filter: drop-shadow(0 0.1rem 0.2rem rgba(0, 0, 0, 0.3));
   border: none;
 }
 .product-label--color:hover {
@@ -761,6 +767,7 @@ body {
 }
 
 .product-attribute--color:checked + .product-label--color {
+  filter: none;
   border: 2px solid #ffffff;
   outline: 1px solid #5ece7b;
 }
