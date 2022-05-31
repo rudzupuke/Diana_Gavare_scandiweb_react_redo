@@ -15,17 +15,13 @@ class ProductContainer extends Component {
     indexOfLastProduct = this.state.productsPerLoad;
 
     componentDidMount() {
-        const currentCategoryData = this.props.data.categories.filter(
-            (cat) => cat.name === this.props.category
-        );
         this.setState({
-            data: currentCategoryData[0].products,
-            currentLoad: this.currentLoad,
+            data: this.props.data.category.products,
         });
     }
 
     componentDidUpdate(prevProps) {
-        // when component loads data and sets is as data state, change productsInCurrentLoad state:
+        // when component loads data and sets is as data state, change productsInCurrentLoad state:s
         if (this.state.data && !this.state.productsInCurrentLoad) {
             this.setState({
                 productsInCurrentLoad: this.state.data.slice(
@@ -35,17 +31,15 @@ class ProductContainer extends Component {
             });
         }
 
-        // when category changes, update data & productsInCurrentPage state:
-        const currentCategoryData = this.props.data.categories.filter(
-            (cat) => cat.name === this.props.category
-        );
         // to update component with the right data when user changes category:
-        if (prevProps.category !== this.props.category) {
+        if (
+            prevProps.data.variables.title !== this.props.data.variables.title
+        ) {
             this.indexOfLastProduct = this.state.productsPerLoad;
 
             this.setState({
-                data: currentCategoryData[0].products,
-                productsInCurrentLoad: currentCategoryData[0].products.slice(
+                data: this.props.data.category.products,
+                productsInCurrentLoad: this.props.data.category.products.slice(
                     this.indexOfFirstProduct,
                     this.indexOfLastProduct
                 ),

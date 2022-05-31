@@ -17,10 +17,9 @@ const getCategoriesQuery = gql`
     }
 `;
 
-const getAllDataQuery = gql`
-    query AllProducts {
-        categories {
-            name
+const getCategoryDataQuery = gql`
+    query Category($title: String!) {
+        category(input: { title: $title }) {
             products {
                 name
                 id
@@ -80,7 +79,7 @@ const getProductQuery = gql`
 `;
 
 export {
-    getAllDataQuery,
+    getCategoryDataQuery,
     getCurrenciesQuery,
     getCategoriesQuery,
     getProductQuery,

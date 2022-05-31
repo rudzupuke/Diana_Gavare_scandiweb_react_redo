@@ -1,8 +1,7 @@
 import { Component } from "react";
-import { withRouter } from "../../withRouter";
-
 import { graphql } from "@apollo/client/react/hoc";
-import { getAllDataQuery } from "../../Queries/queries";
+import { getCategoryDataQuery } from "../../Queries/queries";
+import { withRouter } from "../../withRouter";
 
 import ProductContainer from "../../Components/ProductListingPage/ProductContainer";
 
@@ -20,13 +19,20 @@ class ProductListingPage extends Component {
                 <h1 className="plp-container__heading">
                     {this.createCategoryName()}
                 </h1>
-                <ProductContainer
-                    data={this.props.data}
-                    category={this.props.router.params.category}
-                />
+                <ProductContainer data={this.props.data} />
             </div>
         );
     }
 }
 
-export default withRouter(graphql(getAllDataQuery)(ProductListingPage));
+export default withRouter(
+    graphql(getCategoryDataQuery, {
+        options: (props) => {
+            return {
+                variables: {
+                    title: props.router.params.category,
+                },
+            };
+        },
+    })(ProductListingPage)
+);

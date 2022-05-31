@@ -8,8 +8,6 @@ import CartPage from "./Pages/CartPage/CartPage";
 import ProductDescriptionPage from "./Pages/ProductDescriptionPage/ProductDescriptionPage";
 import ProductListingPage from "./Pages/ProductListingPage/ProductListingPage";
 
-// import "./sassStyles/global.scss";
-
 const client = new ApolloClient({
     uri: "http://localhost:4000",
     cache: new InMemoryCache(),
