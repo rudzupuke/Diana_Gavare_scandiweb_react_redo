@@ -30,21 +30,32 @@ class CartOverlayProduct extends Component {
 
                     {/* if there are no attributes then don't render CartOverlayAttribute component */}
                     {this.props.data.product.attributes[0] && (
-                        <div className="cart-overlay__attributes">
-                            {this.props.data.product.attributes[0].items.map(
-                                (attr) => {
-                                    return (
-                                        <CartOverlayAttribute
-                                            key={attr.id}
-                                            id={attr.id}
-                                            name={attr.name}
-                                            itemValue={attr.value}
-                                            selectedAttribute={
-                                                this.props.selectedAttribute
-                                            }
-                                        />
-                                    );
-                                }
+                        <div>
+                            {this.props.data.product.attributes.map(
+                                (attr, index) => (
+                                    <div key={index}>
+                                        <span>{attr.name}</span>
+                                        <div className="cart-overlay__attributes">
+                                            {attr.items.map((item) => (
+                                                <CartOverlayAttribute
+                                                    name={attr.name}
+                                                    itemValue={item.value}
+                                                    attributeCount={
+                                                        this.props.data.product
+                                                            .attributes.length
+                                                    }
+                                                    selectedAttribute={
+                                                        this.props
+                                                            .selectedAttribute
+                                                    }
+                                                    uniqueId={
+                                                        this.props.uniqueId
+                                                    }
+                                                />
+                                            ))}
+                                        </div>
+                                    </div>
+                                )
                             )}
                         </div>
                     )}

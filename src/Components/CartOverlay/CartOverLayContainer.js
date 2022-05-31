@@ -2,6 +2,7 @@ import { Component } from "react";
 import { CartStore } from "../../Stores/CartStore";
 import { CurrencyStore } from "../../Stores/CurrencyStore";
 
+import { toJS } from "mobx";
 import { observer } from "mobx-react";
 import CartOverlayProduct from "./CartOverlayProduct";
 import Button from "./Button";
@@ -33,7 +34,7 @@ class CartOverLayContainer extends Component {
                             count={product.count}
                             currencySymbol={CurrencyStore.currency}
                             productCount={product.count}
-                            selectedAttribute={product.attribute}
+                            selectedAttribute={toJS(product.attribute)}
                             uniqueId={product.uniqueId}
                             addToCart={this.addToCart}
                             removeFromCart={this.removeFromCart}
