@@ -1,40 +1,6 @@
 @use "../variables.scss" as v;
 @use "../mixins.scss" as m;
 
-.button {
-    @include m.center;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 120%;
-    text-transform: uppercase;
-    text-decoration: none;
-    width: 140px;
-    height: 43px;
-}
-
-.button--primary {
-    @extend .button;
-    background-color: v.$c-primary;
-    color: v.$c-white;
-    border: 1px solid v.$c-primary;
-
-    &:hover {
-        background-color: darken(v.$c-primary, 5%);
-    }
-}
-
-.button--secondary {
-    @extend .button;
-    background-color: v.$c-white;
-    color: v.$c-black;
-    border: 1px solid v.$c-black;
-
-    &:hover {
-        background-color: darken(v.$c-white, 5%);
-    }
-}
-
 .cart-overlay {
     top: 77px;
     z-index: 100;
@@ -90,12 +56,12 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        align-items: stretch;
         gap: 12px;
         margin-bottom: 41px;
     }
 
     &__items-left {
-        height: 137px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -118,11 +84,16 @@
         font-weight: v.$regular;
         line-height: 25.6px;
         margin-top: 4px;
+        margin-bottom: 8px;
+    }
+
+    &__item-image-wrapper {
+        @include m.center;
     }
 
     &__item-image {
-        height: 137px;
-        width: 105px;
+        height: 190px;
+        width: 121px;
         object-fit: cover;
     }
 
@@ -131,8 +102,19 @@
         gap: 8px;
     }
 
+    &__attributes-container {
+        & > * + * {
+            margin-top: 8px;
+        }
+    }
+
+    &__attributes-name {
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 8px;
+    }
+
     &__item-count-controller {
-        height: 137px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -168,13 +150,17 @@
     color: v.$c-cart-overlay-attribute-text;
 
     &--color {
-        @extend .cart-overlay-attribute-label;
+        width: 20px;
+        height: 20px;
         border: none;
+        filter: v.$drop-shadow-color-attribute;
     }
 }
 
 .cart-overlay-attribute[type="radio"]:checked + .cart-overlay-attribute-label {
     @include m.cart-overlay-radio-button;
+    background-color: v.$c-cart-overlay-attribute-text;
+    color: v.$c-white;
 }
 
 .cart-overlay-attribute--color[type="radio"]:checked
@@ -186,4 +172,38 @@
 
 .selected-colorinput:checked + .cart-overlay-attribute-label {
     background-image: v.$slightly-dark-gradient;
+}
+
+.button {
+    @include m.center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+    text-transform: uppercase;
+    text-decoration: none;
+    width: 140px;
+    height: 43px;
+}
+
+.button--primary {
+    @extend .button;
+    background-color: v.$c-primary;
+    color: v.$c-white;
+    border: 1px solid v.$c-primary;
+
+    &:hover {
+        background-color: darken(v.$c-primary, 5%);
+    }
+}
+
+.button--secondary {
+    @extend .button;
+    background-color: v.$c-white;
+    color: v.$c-black;
+    border: 1px solid v.$c-black;
+
+    &:hover {
+        background-color: darken(v.$c-white, 5%);
+    }
 }

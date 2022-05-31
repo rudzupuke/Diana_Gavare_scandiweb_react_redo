@@ -6,8 +6,8 @@ $c-primary: #5ece7b;
 $c-out-of-stock: #8d8f9a;
 $c-light-grey: #e5e5e5;
 $c-currency-switcher-hover: #eeeeee;
-$c-cart-overlay-attribute-bg: hsl(0, 0%, 65%, 20%);
-$c-cart-overlay-attribute-text: hsl(0, 0%, 65%);
+$c-cart-overlay-attribute-bg: #ffffff;
+$c-cart-overlay-attribute-text: #1d1f22;
 $c-black-73: hsla(0, 0%, 0%, 0.73);
 $c-black-100: hsla(0, 0%, 0%);
 
@@ -32,6 +32,7 @@ $product-description-f-size: 16px;
 $out-of-stock-f-size: 24px;
 $order-button-f-size: 14px;
 $cart-overlay-cont-f-size: 16px;
+$cart-page-attribute-font-size: 18px;
 
 // FONT WEIGHTS:
 
@@ -45,6 +46,7 @@ $bolder: 700;
 
 $drop-shadow: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.19));
 $drop-shadow-filter: drop-shadow(0 0.1rem 0.2rem rgba(0, 0, 0, 0.3));
+$drop-shadow-color-attribute: drop-shadow(0.3px 0.3px 0.5px rgb(0, 0, 0, 0.6));
 
 // PADDINGS:
 

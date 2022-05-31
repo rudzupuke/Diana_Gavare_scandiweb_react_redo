@@ -9,6 +9,9 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    @media (max-width: 1130px) {
+        align-items: stretch;
+    }
 
     &__link {
         color: v.$c-black;
@@ -22,13 +25,39 @@
         }
     }
 
+    &__attributes-container {
+        & > *[data-color="false"] {
+            display: inline-block;
+
+            @media (max-width: 1130px) {
+                display: block;
+            }
+        }
+
+        & > *[data-color="false"] + *[data-color="false"] {
+            margin-left: 2.5rem;
+            @media (max-width: 1130px) {
+                margin-left: 0;
+            }
+        }
+
+        & > * + * {
+            padding-top: 1rem;
+        }
+
+        & h4 {
+            font-size: v.$cart-page-attribute-font-size;
+            text-transform: uppercase;
+            font-family: t.$attributes-font;
+            padding-bottom: 0.45rem;
+        }
+    }
+
     &__attributes {
-        margin-left: 5px;
         display: flex;
         gap: 12px;
         min-height: v.$main-attribute-height;
     }
-
     &__right-container {
         display: flex;
         gap: 12px;
@@ -41,6 +70,9 @@
     justify-content: space-between;
     align-items: center;
     height: v.$cart-image-height;
+    @media (max-width: 1130px) {
+        height: 100%;
+    }
 
     &__button {
         @include m.clear-btn-styles;
@@ -67,11 +99,17 @@
     height: v.$cart-image-height;
     display: flex;
     align-items: center;
+    @media (max-width: 1130px) {
+        height: 100%;
+    }
 
     &__image {
         height: v.$cart-image-height;
         width: v.$cart-image-width;
         object-fit: cover;
+        @media (max-width: 1130px) {
+            height: 100%;
+        }
     }
 
     &__arrows {

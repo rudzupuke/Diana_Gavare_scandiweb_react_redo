@@ -105,7 +105,7 @@
         @extend .product-label;
         width: v.$main-color-attribute-size;
         height: v.$main-color-attribute-size;
-        filter: v.$drop-shadow-filter;
+        filter: v.$drop-shadow-color-attribute;
         border: none;
 
         &:hover {

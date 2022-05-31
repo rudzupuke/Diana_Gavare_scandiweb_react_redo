@@ -30,11 +30,13 @@ class CartOverlayProduct extends Component {
 
                     {/* if there are no attributes then don't render CartOverlayAttribute component */}
                     {this.props.data.product.attributes[0] && (
-                        <div>
+                        <div className="cart-overlay__attributes-container">
                             {this.props.data.product.attributes.map(
                                 (attr, index) => (
                                     <div key={index}>
-                                        <span>{attr.name}</span>
+                                        <h4 className="cart-overlay__attributes-name">
+                                            {attr.name}:
+                                        </h4>
                                         <div className="cart-overlay__attributes">
                                             {attr.items.map((item, index) => (
                                                 <CartOverlayAttribute
