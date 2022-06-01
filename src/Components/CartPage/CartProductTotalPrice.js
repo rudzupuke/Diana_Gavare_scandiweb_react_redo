@@ -12,16 +12,16 @@ class CartProductTotalPrice extends Component {
             <div className="cart-product-total-price">
                 <div>
                     <p className="cart-product-total-price__tax">
-                        Tax:{" "}
+                        Tax {CartStore.tax.tax}%:{" "}
                         <span className="cart-product-total-price__tax--bold">
                             {CurrencyStore.currency}
-                            {CartStore.tax}
+                            {CartStore.tax.calculatedTax}
                         </span>
                     </p>
                     <p className="cart-product-total-price__qty">
-                        Qty:{" "}
+                        Quantity:{" "}
                         <span className="cart-product-total-price__qty--bold">
-                            {CartStore.itemsInCart}
+                            {CartStore.totalProducts}
                         </span>
                     </p>
                 </div>
@@ -30,7 +30,9 @@ class CartProductTotalPrice extends Component {
                     <span className="cart-product-total-price__qty--bold">
                         {CurrencyStore.currency}
                         {Math.round(
-                            (CartStore.totalPrice + CartStore.tax) * 100
+                            (CartStore.totalPrice +
+                                CartStore.tax.calculatedTax) *
+                                100
                         ) / 100}
                     </span>
                 </p>

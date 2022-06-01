@@ -104,9 +104,10 @@ class CartStoreImpl {
 
     get tax() {
         const totalPrice = this.totalPrice;
-        const tax = Math.round(((totalPrice * 10) / 100) * 100) / 100;
+        const tax = 21;
+        const calculatedTax = Math.round(((totalPrice * 21) / 100) * 100) / 100;
 
-        return tax;
+        return { tax, calculatedTax };
     }
 
     get itemsInCart() {
