@@ -25,7 +25,6 @@ class AttributesContainer extends Component {
     }
 
     render() {
-        // console.log(this.props);
         return (
             <div className="attributes-container">
                 {this.props.attributes.map((attributeSet, index) => (

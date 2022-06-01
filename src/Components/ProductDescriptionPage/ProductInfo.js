@@ -66,7 +66,6 @@ class ProductInfo extends Component {
     };
 
     render() {
-        console.log(this.state);
         return (
             <div className="pdp-product-info">
                 <ProductName

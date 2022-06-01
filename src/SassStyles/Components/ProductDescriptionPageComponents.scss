@@ -5,14 +5,10 @@
 .pdp-main-image-container {
     width: 48.8%;
     margin-right: 8%;
-    // max-width: v.$main-image-width;
 }
 
 .main-image {
-    // width: 100%;
-    // max-width: v.$main-image-width;
     width: 100%;
-    // width: v.$main-image-width;
     height: v.$main-image-height;
     object-fit: cover;
 }
