@@ -141,7 +141,7 @@ class AttributeClickTrackingStoreImpl {
     getProductAttribute(productId) {
         const { index, noMatchFound } = this.findIndex(productId);
 
-        if (noMatchFound) return null;
+        if (noMatchFound) return "no-attribute";
 
         if (this.trackedProducts[index].attributeArray) {
             if (

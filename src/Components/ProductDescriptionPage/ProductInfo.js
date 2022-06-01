@@ -16,6 +16,7 @@ class ProductInfo extends Component {
             AttributeClickTrackingStore.getProductAttribute(
                 this.props.productId
             ) || "no-attribute",
+        error: "",
     };
 
     handleAttributeClick = (value, attributeName, attributes) => {
@@ -51,22 +52,21 @@ class ProductInfo extends Component {
                 this.state.selectedItemAttribute !== "no-attribute") ||
             this.attributeType === "NO-ATTRIBUTES"
         ) {
+            this.setState({ error: "" });
             CartStore.addProductToCart(
                 this.props.productId,
                 this.attributeType,
                 this.state.selectedItemAttribute,
                 this.props.prices
             );
+        } else {
+            this.setState({ error: "Please choose attribute(s)!" });
         }
-
-        // if there are no attributes, then product is not getting tracked in the AttributeClickTrackingStore,
-        // to not get an error untrackProduct function gets called only when there are attributes:
-
-        if (this.props.attributes[0])
-            AttributeClickTrackingStore.untrackProduct(this.props.productId);
+        AttributeClickTrackingStore.untrackProduct(this.props.productId);
     };
 
     render() {
+        console.log(this.state);
         return (
             <div className="pdp-product-info">
                 <ProductName
@@ -89,6 +89,9 @@ class ProductInfo extends Component {
                     handleClick={this.addToCart}
                     inStock={this.props.inStock}
                 />
+                <p className="pdp-product-info__error-message">
+                    {this.state.error}
+                </p>
                 <ProductDescription
                     productDescription={this.props.description}
                 />

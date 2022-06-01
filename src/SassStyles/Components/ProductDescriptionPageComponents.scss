@@ -35,6 +35,11 @@
 
 .pdp-product-info {
     width: 23.28%;
+
+    &__error-message {
+        font-weight: v.$bold;
+        text-align: center;
+    }
 }
 
 .pdp-add-to-cart-button {
