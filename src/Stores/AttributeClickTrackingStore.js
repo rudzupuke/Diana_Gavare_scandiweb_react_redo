@@ -1,4 +1,4 @@
-import { makeObservable, observable, action, toJS, has } from "mobx";
+import { makeObservable, observable, action, toJS } from "mobx";
 
 // AttributeClickTrackingStore is for tracking wheter user has clicked/chosen an attribute for the product.
 
@@ -26,13 +26,11 @@ class AttributeClickTrackingStoreImpl {
     }
 
     hasNullValues(array) {
-        const hasNullValues =
-            JSON.stringify(array).match(/:null[\},]/) !== null;
+        const hasNullValues = JSON.stringify(array).match(/:null[},]/) !== null;
         return hasNullValues;
     }
 
     trackProduct(productId, attributeType, attributeName, attributes) {
-        // console.log(toJS(attributes));
         const { index, noMatchFound } = this.findIndex(productId);
 
         if (attributes.length === 1) {
@@ -52,7 +50,7 @@ class AttributeClickTrackingStoreImpl {
         } else if (attributes.length > 1) {
             let attributesArray =
                 JSON.parse(
-                    sessionStorage.getItem(productId + " " + "attributesArray")
+                    sessionStorage.getItem(productId + " attributesArray")
                 ) || [];
 
             if (noMatchFound) {
@@ -71,7 +69,7 @@ class AttributeClickTrackingStoreImpl {
                         }
                     });
                 } else if (attributesArray.length > 0) {
-                    attributesArray.map((attribute) => {
+                    attributesArray.forEach((attribute) => {
                         if (attribute.AttributeName === attributeName) {
                             attribute.attribute = attributeType;
                         }
@@ -86,14 +84,16 @@ class AttributeClickTrackingStoreImpl {
                     this.trackedProducts.push(product);
                 }
             } else {
-                this.trackedProducts[index].attributeArray.map((attribute) => {
-                    if (attribute.AttributeName === attributeName) {
-                        attribute.attribute = attributeType;
+                this.trackedProducts[index].attributeArray.forEach(
+                    (attribute) => {
+                        if (attribute.AttributeName === attributeName) {
+                            attribute.attribute = attributeType;
+                        }
                     }
-                });
+                );
             }
             sessionStorage.setItem(
-                productId + " " + "attributesArray",
+                productId + " attributesArray",
                 JSON.stringify(attributesArray)
             );
         }
@@ -113,19 +113,18 @@ class AttributeClickTrackingStoreImpl {
                 "trackedProducts",
                 JSON.stringify(this.trackedProducts)
             );
-            // sessionStorage.removeItem(productId + " " + "attributesArray");
         }
     }
 
     untractAttributesArray(productId) {
-        let attributesArray = JSON.parse(
-            sessionStorage.getItem(productId + " " + "attributesArray")
+        const attributesArray = JSON.parse(
+            sessionStorage.getItem(productId + " attributesArray")
         );
         if (attributesArray) {
             attributesArray.forEach((attr) => (attr.attribute = null));
 
             sessionStorage.setItem(
-                productId + " " + "attributesArray",
+                productId + " attributesArray",
                 JSON.stringify(attributesArray)
             );
         }
